@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@theme {
+  --color-chatUser: #B9B28A
+  --color-chatAssistant: #EBE5C2
+}
