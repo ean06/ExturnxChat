@@ -8,11 +8,12 @@ type PromptForm = {
 export default function PromptForm({ onSubmit, disabled }: PromptForm) {
     const promptRef = React.useRef<HTMLTextAreaElement>(null);
     const [prompt, setPrompt] = React.useState("");
+    const isPromptEmpty = prompt.trim() === "";
     
     const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         
-        if (disabled) return;
+        if (disabled || isPromptEmpty) return;
         
         onSubmit(prompt);
         setPrompt("");
@@ -20,6 +21,7 @@ export default function PromptForm({ onSubmit, disabled }: PromptForm) {
     };
     React.useEffect(() => {
         promptRef.current?.focus();
+        
     },[]);
     
     React.useEffect(() => {
@@ -44,10 +46,10 @@ export default function PromptForm({ onSubmit, disabled }: PromptForm) {
     }, [prompt, disabled, onSubmit]);
 
     return (
-        <>
+        <div className="fixed bottom-0 md:left-50 md:right-50 xl:left-100 xl:right-100 rounded-lg flex justify-center bg-[#f2f0fc] p-4">
             <form
                 id="chatBox"
-                className="flex gap-4 p-4 flex-none items-start"
+                className="flex gap-4 w-full max-w-4xl flex-none items-start"
                 onSubmit={handleSubmit}
             >
                 <textarea
@@ -56,18 +58,18 @@ export default function PromptForm({ onSubmit, disabled }: PromptForm) {
                     ref={promptRef}
                     name="prompt"
                     id="prompt"
-                    placeholder="Enter your prompt..."
-                    className="w-full border transition focus:outline-none border-slate-700 ring focus:border-slate-500 focus:border focus:ring focus:ring-slate-500 ring-slate-700 rounded-lg px-3 py-2"
+                    placeholder="Ask Anything..."
+                    className="w-full h-24 border resize-none transition focus:outline-none border-slate-700 focus:border-slate-500 focus:ring focus:ring-slate-500 rounded-lg px-3 py-2" // resize-none menonaktifkan resize
                     rows={4}
                 />
                 <button
-                    disabled={disabled}
+                    disabled={disabled || isPromptEmpty}
                     type="submit"
-                    className="bg-slate-700 px-3 disabled:opacity-50 py-2 rounded-lg focus:ring focus:ring-slate-500 transition focus:outline-none"
+                    className="bg-slate-700 px-4 disabled:opacity-50 my-auto py-2 rounded-lg focus:ring focus:ring-slate-500 transition focus:outline-none"
                 >
-                    SEND
+                SEND
                 </button>
             </form>
-        </>
+        </div>
     );
 }
