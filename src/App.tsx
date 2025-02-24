@@ -141,12 +141,12 @@ function App() {
   return (
     <>
       <div className="Container">
-        <div className="flex mt-5">
-          <div className='flex justify-between'>
+        <div className="flex pt-5 fixed justify-between top-0 left-0 right-0 bg-white">
+          <div className='flex  items-center'>
             <img src={logo} alt="logo" className='w-10 h-10 ml-8 mr-3 ' />
             <p className="my-auto font-semibold font-sans text-xl">ExturnxAI</p>
           </div>
-          <img src={profile} alt="logo" className='w-10 h-10 ml-8 mr-3 items-end' />
+          <img src={profile} alt="logo" className='w-10 h-10 mr-8' />
         </div>
 
         <div className='sm:mx-20 md:mx-50 xl:mx-100'>
