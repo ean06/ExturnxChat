@@ -59,13 +59,13 @@ export default function PromptForm({ onSubmit, disabled }: PromptForm) {
                     name="prompt"
                     id="prompt"
                     placeholder="Ask Anything..."
-                    className="w-full h-24 border resize-none transition focus:outline-none border-slate-700 focus:border-slate-500 focus:ring focus:ring-slate-500 rounded-lg px-3 py-2" // resize-none menonaktifkan resize
+                    className="w-full h-24 border resize-none transition focus:outline-none border-[#574d4d] focus:border-[#574d4d] focus:ring focus:ring-[#574d4d] rounded-lg px-3 py-2" // resize-none menonaktifkan resize
                     rows={4}
                 />
                 <button
                     disabled={disabled || isPromptEmpty}
-                    type="submit"
-                    className="bg-slate-700 px-4 disabled:opacity-50 my-auto py-2 rounded-lg focus:ring focus:ring-slate-500 transition focus:outline-none"
+                    type="submit"   
+                    className="bg-[#a091c7] px-4 disabled:opacity-50 my-auto py-2 rounded-lg focus:ring focus:ring-slate-500 transition focus:outline-none"
                 >
                 SEND
                 </button>
